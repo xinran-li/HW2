@@ -1,0 +1,106 @@
+# HW2
+function setup() {
+  createCanvas(400, 400);
+}
+
+var ballX = 0;
+var ballSpeedx = 1;
+var ballSize = 50
+
+var ballX2 = 0;
+var ballSpeedx2 = 1;
+var ballSize2 = 50
+
+var ballX3 = 399;
+var ballSpeedx3 = -1;
+var ballSize3 = 50
+
+var ballY = 0;
+var ballSpeedy = 1;
+
+var ballY2 = 399;
+var ballSpeedy2 = -1;
+
+var ballY3 = 0;
+var ballSpeedy3 = 1;
+
+var ballred = 225;
+var ballgreen = 225;
+var ballblue = 225;
+
+var ballred2 = 1.125;
+var ballgreen2 = 1.125;
+var ballblue2 = 1.125;
+
+var ballSizeSpeed = 0.1;
+
+function draw() {
+  background(220);
+  noStroke();
+  
+  
+  fill(ballred, 0, 0, 100)
+  ellipse(ballX, ballY, ballSize);
+  fill(0, ballgreen, 0, 100)
+  ellipse(ballX2, ballY2, ballSize2);
+  fill(0, 0, ballblue, 100)
+  ellipse(ballX3, ballY3, ballSize3);
+  
+  ballX = ballX + ballSpeedx;
+  ballX2 = ballX2 + ballSpeedx2;
+  ballX3 = ballX3 + ballSpeedx3;
+  ballY = ballY + ballSpeedy;
+  ballY2 = ballY2 + ballSpeedy2;
+  ballY3 = ballY3 + ballSpeedy3;
+  ballred = ballred - ballred2;
+  ballgreen = ballgreen - ballgreen2;
+  ballblue = ballblue - ballblue2;
+  ballSize = ballSize + ballSizeSpeed;
+  ballSize2 = ballSize2 + ballSizeSpeed;
+  ballSize3 = ballSize3 + ballSizeSpeed;
+  
+  if (ballX >= 400) {
+    ballSpeedx = -1;
+    ballSpeedy = -1;
+    ballred2 = -1.125;
+    ballSizeSpeed = -0.1;
+    }
+
+  if (ballX <= 0) {
+    ballSpeedx = 1;
+    ballSpeedy = 1;
+    ballred2 = 1.125;
+    ballSizeSpeed = -0.1;
+ }
+  
+    if (ballX2 >= 400) {
+    ballSpeedx2 = -1;
+    ballSpeedy2 = 1;
+    ballgreen2 = -1.125;
+    ballSizeSpeed = 0.1;
+}
+
+  if (ballX2 <= 0) {
+    ballSpeedx2 = 1;
+    ballSpeedy2 = -1;
+    ballgreen2 = 1.125;
+    ballSizeSpeed = -0.1;
+ }
+  
+    
+  if (ballX3 >= 400) {
+    ballSpeedx3 = -1;
+    ballSpeedy3 = 1;
+    ballblue2 = 1.125;
+    ballSizeSpeed = -0.1;
+}
+
+  if (ballX3 <= 0) {
+    ballSpeedx3 = 1;
+    ballSpeedy3 = -1;
+    ballblue2 = -1.125;
+    ballSizeSpeed = 0.1;
+ }
+  
+  
+}
